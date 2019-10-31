@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<form id="signup">
+		<h1>Registration</h1>
+		<label for="username">username:</label>
+		<input required type="username" id="username" v-model="username">
+		<label for="email">email:</label>
+		<input required type="email" id="email" v-model="email">
+		<br><br>
+		<label for="password">password:</label>
+		<input required type="password" id="password" v-model="password">
+		<br><br>
+		<button v-on:click="onsubmit">Submit</button>
+	</form>
+</body>
+</html>

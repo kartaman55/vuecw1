@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<form id="login" method="post">
+		<h1> Login for Parents & Students</h1>
+		<label for="username">username:</label>
+		<input required type="username" id="username" v-model="username">
+		<br><br>
+		<label for="password">password:</label>
+		<input required type="password" id="password" v-model="password">
+		<br><br>
+		<button v-on:click="onsubmit">Submit</button>
+	</form>
+
+	<form id="loginadmin" method="post">
+		<h1> Login for Students</h1>
+		<label for="username">username:</label>
+		<input required type="username" id="usernameadmin" v-model="username">
+		<br><br>
+		<label for="password">password:</label>
+		<input required type="password" id="passwordadmin" v-model="password">
+		<br><br>
+		<button v-on:click="onsubmit">Submit</button>
+	</form>
+</body>
+</html>
