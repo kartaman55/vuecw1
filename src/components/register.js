@@ -40,12 +40,11 @@ var signupApp = new Vue ({
                 }
 
                 users.push({'username': newUser, 'email': newEmail, 'password': this.password});
-            }
-
-            else {
-                users.push({'username': newUser, 'email': newEmail, 'password': this.password});
+                localStorage.setItem('users', JSON.stringify(users))
+            } else {
+                users = ({'username': newUser, 'email': newEmail, 'password': this.password});
                 localStorage.setItem('users', JSON.stringify(users))
             }
         }
     }
-})
+});
