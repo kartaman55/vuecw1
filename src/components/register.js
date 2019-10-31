@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 var signupApp = new Vue ({
     el: '#signup',
     data: {
@@ -5,41 +6,31 @@ var signupApp = new Vue ({
         email: '',
         password: '',
     },
-
     methods:{
-        onSubmit :function(){
+        onsubmit: function() {
+            // check if email exists
             var users = '';
             var newUser = this.username;
             var newEmail = this.email;
 
-            if (localStorage.getItem('users')) {
+            if (localStorage.getItem('users')) { // 'users' is an array of objects
                 users = JSON.parse(localStorage.getItem('users'));
-            }
-
+            };
             if (users) {
-                if (users.some(function (user) {
-                    return user.username === newUser
-                })) {
-                    alert('Account already exists');
+                if (users.some(function(user) {return user.username === newUser})) {
+                    alert('Username already exists!');
                     return;
                 }
-                if (users) {
-                    if (users.some(function (user) {
-                        return user.email === newEmail
-
-                    })) {
-                        alert('Account already exists');
-                        return;
-
-                    } else {
-                        alert('Account created');
-                    }
+                if (users.some(function(user) {return user.email === newEmail})) {
+                    alert('Email already exists!');
+                    return;
                 }
-                users.push({'username': newUser, 'email': newEmail, 'password': this.password});
-                localStorage.setItem('users', JSON.stringify(users))
-            } else {
-                users = [{'username': newUser, 'email': newEmail, 'password': this.password}];
-                localStorage.setItem('users', JSON.stringify(users))
+                users.push({'email': newEmail, 'password': this.password});
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+            else {
+                users = [{'email': newEmail, 'password': this.password}];
+                localStorage.setItem('users', JSON.stringify(users));
             }
         }
     }
