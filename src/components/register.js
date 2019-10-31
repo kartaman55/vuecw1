@@ -19,30 +19,26 @@ var signupApp = new Vue ({
             if (users) {
                 if (users.some(function (user) {
                     return user.username === newUser
-                }))
-
-                {
+                })) {
                     alert('Account already exists');
+                    return;
                 }
-
                 if (users) {
                     if (users.some(function (user) {
                         return user.email === newEmail
-                    }))
 
-                    {
+                    })) {
                         alert('Account already exists');
-                    }
+                        return;
 
-                    else {
+                    } else {
                         alert('Account created');
                     }
                 }
-
                 users.push({'username': newUser, 'email': newEmail, 'password': this.password});
                 localStorage.setItem('users', JSON.stringify(users))
             } else {
-                users = ({'username': newUser, 'email': newEmail, 'password': this.password});
+                users = [{'username': newUser, 'email': newEmail, 'password': this.password}];
                 localStorage.setItem('users', JSON.stringify(users))
             }
         }
