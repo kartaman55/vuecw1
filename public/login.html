@@ -3,9 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Title</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
-	<form id="login" method="post">
+	<form id="login" method="post" v-on:submit.prevent>
 		<h1> Login for Parents & Students</h1>
 		<label for="username">username:</label>
 		<input required type="username" id="username" v-model="username">
@@ -13,18 +14,20 @@
 		<label for="password">password:</label>
 		<input required type="password" id="password" v-model="password">
 		<br><br>
-		<button v-on:click="onsubmit">Submit</button>
+		<button v-on:click="onSubmit">Submit</button>
+		<script src="../src/components/login.js" type="text/javascript"></script>
 	</form>
 
-	<form id="loginadmin" method="post">
-		<h1> Login for Students</h1>
+	<form id="loginadmin" method="post" v-on:submit.prevent>
+		<h1> Login for Administrators</h1>
 		<label for="username">username:</label>
 		<input required type="username" id="usernameadmin" v-model="username">
 		<br><br>
 		<label for="password">password:</label>
 		<input required type="password" id="passwordadmin" v-model="password">
 		<br><br>
-		<button v-on:click="onsubmit">Submit</button>
+		<button v-on:click="onSubmit">Submit</button>
 	</form>
+	<script src="../src/components/login.js" type="text/javascript"></script>
 </body>
 </html>
